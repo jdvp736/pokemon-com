@@ -1,0 +1,152 @@
+/* File: pokedex/src/styles/pokedex.css
+   Cleaned, deduplicated theme for Pokédex project
+*/
+
+/* ---------- Layout container (UNIFICADO) ---------- */
+/* Usar la misma caja centrada en header / hero / grid */
+.site-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* ---------- Header ---------- */
+.pokedex-header {
+  width: 100%;
+  background: linear-gradient(90deg, #e11d48 0%, #ef4444 60%);
+  border-bottom: 2px solid rgba(0,0,0,0.06);
+  color: #fff;
+}
+
+/* Nav link buttons (contraste alto) */
+.nav-link {
+  display: inline-block;
+  padding: .45rem .9rem;
+  font-weight: 800;
+  border-radius: .6rem;
+  background: rgba(255,255,255,0.98);
+  color: #7f1d1d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s;
+  text-decoration: none;
+}
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: #ffffff;
+}
+
+/* ---------- Pokéball (header & small) ---------- */
+.pokeball {
+  background: linear-gradient(180deg, #e11d48 0%, #ffffff 50%);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(12,12,12,0.18);
+  display: inline-block;
+  overflow: hidden;
+}
+.pokeball::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  background: #000;
+  transform: translateY(-50%);
+}
+.pokeball::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.85) inset;
+  z-index: 2;
+}
+
+/* Mini pokeball wrapper used inside cards */
+.pokeball-mini {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* ---------- Hero ---------- */
+.hero-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+  width: 100%;
+}
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ---------- Grid (Poké list) ---------- */
+/* Consistent responsive grid that matches .site-container */
+.pokedex-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2rem; /* horizontal + vertical gap */
+  justify-items: center; /* center each card inside its cell */
+  align-items: start;
+}
+
+/* wrapper for each grid cell — controls visual card width */
+.card-wrapper {
+  width: 100%;
+  max-width: 160px;
+}
+
+/* Card uniform sizing */
+.pokedex-card-fixed {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+}
+
+/* Ensure images and content center nicely inside card */
+.card-wrapper .pokedex-card-fixed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Small screens: reduce columns for readability */
+@media (max-width: 1024px) {
+  .pokedex-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 768px) {
+  .pokedex-grid { grid-template-columns: repeat(3, 1fr); }
+  .site-container { padding-left: 12px; padding-right: 12px; }
+}
+@media (max-width: 480px) {
+  .pokedex-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .card-wrapper { max-width: 140px; }
+}
+
+/* ---------- Utility tweaks ---------- */
+/* Make sure default list bullets in hero look subtle on dark overlay */
+.hero-card ul { margin-top: .75rem; color: rgba(255,255,255,0.88); }
+
+/* Trim excessive shadows for very small screens */
+@media (max-width: 420px) {
+  .hero-card { box-shadow: 0 6px 14px rgba(2,6,23,0.06); }
+}
