@@ -1,72 +1,55 @@
-/* ============================================================
-   Pokémon Esmeralda – Tema completo rediseñado
-   Estética GBA retro + bordes gruesos + vibras Hoenn
-   ============================================================ */
-
-/* ---------- Layout general ---------- */
 .site-container {
-  max-width: 1150px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
   box-sizing: border-box;
-  background: linear-gradient(180deg, #0f5f47 0%, #0a3f30 100%);
-  border: 3px solid #0b7450;
-  border-radius: 14px;
-  box-shadow: 0 0 18px rgba(0,0,0,0.3) inset;
+  background: linear-gradient(180deg, #0b5f4a 0%, #0a4a3a 100%);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
 }
 
-/* ---------- Header estilo Esmeralda ---------- */
 .pokedex-header {
   width: 100%;
+  background: linear-gradient(90deg, #0c7f63 0%, #0a5c48 100%);
+  border-bottom: 3px solid #06382e;
+  color: #ffffff;
   padding: 1rem 0;
-  background: linear-gradient(90deg, #0f9d6a 0%, #0b7450 50%, #0f9d6a 100%);
-  border-bottom: 4px solid #064f37;
-  color: #fefefe;
-  text-shadow: 0px 0px 4px rgba(0,0,0,0.35);
-  font-family: "Trebuchet MS", sans-serif;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
 }
 
-/* Botones estilo “menu Hoenn” */
 .nav-link {
   display: inline-block;
-  padding: .55rem 1rem;
+  padding: .5rem 1rem;
   font-weight: 900;
-  border-radius: 0.5rem;
-  background: #f1c40f;
-  color: #064f37;
-  border: 3px solid #ad8c0a;
-  box-shadow:
-    0 3px 0 #856b08,
-    0 5px 10px rgba(0,0,0,0.25);
-  transition: transform .12s ease, box-shadow .12s ease;
+  border-radius: .6rem;
+  background: #e3fef3;
+  color: #064237;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s;
   text-decoration: none;
 }
 .nav-link:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 5px 0 #856b08,
-    0 10px 20px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  background: #ffffff;
 }
 
-/* ---------- Pokéball retro verde ---------- */
 .pokeball {
-  background: linear-gradient(180deg, #0f9d6a 0%, #ffffff 50%);
+  background: radial-gradient(circle at 50% 30%, #0da57e, #0a4f3c);
   border-radius: 50%;
   position: relative;
-  width: 55px;
-  height: 55px;
-  box-shadow:
-    0 8px 16px rgba(0,0,0,0.25),
-    0 0 0 3px #064f37 inset;
+  box-shadow: 0 6px 18px rgba(12,12,12,0.35);
+  display: inline-block;
   overflow: hidden;
 }
 .pokeball::after {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
   top: 50%;
-  height: 4px;
-  background: #064f37;
+  height: 3px;
+  background: #013326;
   transform: translateY(-50%);
 }
 .pokeball::before {
@@ -75,101 +58,106 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  width: 20px;
-  height: 20px;
-  background: #f1c40f;
+  width: 22px;
+  height: 22px;
+  background: #e8fff7;
   border-radius: 50%;
-  box-shadow:
-    0 0 0 4px #064f37,
-    0 0 12px rgba(0,0,0,0.4);
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.85) inset;
+  z-index: 2;
 }
 
-/* Mini pokeball estilo Esmeralda */
 .pokeball-mini {
   display: inline-grid;
   place-items: center;
   border-radius: 9999px;
-  background: #0f9d6a;
-  padding: 6px;
-  box-shadow:
-    0 3px 7px rgba(0,0,0,0.25),
-    0 0 0 2px #064f37 inset;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  background: radial-gradient(circle at 50% 30%, #10b78d, #0b5f4a);
 }
 
-/* ---------- Hero estilo Pokédex Hoenn ---------- */
 .hero-card {
   position: relative;
-  border-radius: 12px;
+  border-radius: 1rem;
   overflow: hidden;
-  background: linear-gradient(180deg, #0f9d6a 0%, #0b7450 100%);
-  border: 4px solid #064f37;
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.35),
-    0 0 0 3px #ad8c0a inset;
+  background: linear-gradient(160deg, #0ca57d 0%, #074f3d 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  width: 100%;
+  color: #e8fff7;
 }
 .hero-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("https://i.imgur.com/UoX2k5H.png");
-  opacity: 0.06;
-  mix-blend-mode: overlay;
+  border-radius: inherit;
+  background: rgba(0,0,0,0.15);
   pointer-events: none;
 }
+.hero-card ul {
+  margin-top: .75rem;
+  color: rgba(255,255,255,0.92);
+}
 
-/* ---------- Grid estilo caja Pokédex ---------- */
 .pokedex-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 1.7rem;
+  gap: 2rem;
   justify-items: center;
   align-items: start;
 }
 
-/* Casilla de cada card */
 .card-wrapper {
   width: 100%;
-  max-width: 165px;
+  max-width: 160px;
 }
 
-/* Cards estilo Pokédex — GBA vibes */
 .pokedex-card-fixed {
   width: 100%;
-  min-height: 220px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
-  border: 4px solid #0f9d6a;
-  box-shadow:
-    0 8px 16px rgba(0,0,0,0.20),
-    0 0 0 3px #064f37 inset;
+  min-height: 240px;
+  background: #e8fff7;
+  border-radius: 1rem;
+  border: 3px solid #0c6f58;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Trebuchet MS", sans-serif;
+  justify-content: flex-start;
+  gap: .8rem;
+  padding: 1rem 0 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
 
-/* ---------- Responsivo ---------- */
+
+.pokedex-grid * {
+  color: #000 !important;
+}
+
+
+.card-wrapper .pokedex-card-fixed .circle-zone {
+  width: 110px;
+  height: 110px;
+  clip-path: polygon(
+    50% 0%, 
+    93% 25%, 
+    93% 75%, 
+    50% 100%, 
+    7% 75%, 
+    7% 25%
+  );
+  background: radial-gradient(circle at 50% 30%, #0fb890, #0a5c48);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.25);
+}
+
 @media (max-width: 1024px) {
   .pokedex-grid { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 768px) {
   .pokedex-grid { grid-template-columns: repeat(3, 1fr); }
-  .site-container { padding: 14px; }
+  .site-container { padding-left: 12px; padding-right: 12px; }
 }
 @media (max-width: 480px) {
   .pokedex-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .card-wrapper { max-width: 145px; }
+  .card-wrapper { max-width: 140px; }
 }
-
-/* ---------- Hero list ---------- */
-.hero-card ul {
-  margin-top: .75rem;
-  color: #fefefe;
-  font-weight: bold;
-}
-
-/* Pequeño ajuste sombras mobile */
 @media (max-width: 420px) {
-  .hero-card { box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
+  .hero-card { box-shadow: 0 6px 14px rgba(0,0,0,0.15); }
 }

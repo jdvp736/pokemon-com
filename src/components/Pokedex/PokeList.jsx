@@ -1,4 +1,3 @@
-// pokedex/src/components/Pokedex/PokeList.jsx
 import { Card } from "./Card";
 import { Button } from "../Button";
 import { usePokemonService } from "../../hooks/usePokemonService";

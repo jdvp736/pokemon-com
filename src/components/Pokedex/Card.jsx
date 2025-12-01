@@ -1,4 +1,3 @@
-// pokedex/src/components/Pokedex/Card.jsx
 export const Card = ({ id, name, defaultImgUri, types = [], variant = 'red' })=>{
     const circleClass = variant === 'red' ? 'bg-red-600' : 'bg-white';
     const imageWrapperExtra = variant === 'white' ? 'ring-2 ring-gray-200' : '';
